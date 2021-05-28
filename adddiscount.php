@@ -166,3 +166,4 @@ if (!empty($table)) {
 }
 
 echo $OUTPUT->footer();
+
