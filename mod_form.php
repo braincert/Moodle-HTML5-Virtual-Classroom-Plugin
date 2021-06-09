@@ -60,7 +60,7 @@ class mod_braincert_mod_form extends moodleform_mod
 
         $bctimeoptions = $this->time_options();
         $dtoption = array('startyear' => date("Y", strtotime("-1 year")),
-            'stopyear' => date("Y", strtotime("+2 year")), 'timezone' => 99);
+            'stopyear' => date("Y", strtotime("+10 years")), 'timezone' => 99);
 
         $mform = $this->_form;
         // Adding the "general" fieldset.
@@ -366,22 +366,16 @@ class mod_braincert_mod_form extends moodleform_mod
     }
 
     private function region_options() {
-        return array(
-           "1" => get_string("region1", "braincert"),
-           "2" => get_string("region2", "braincert"),
-           "3" => get_string("region3", "braincert"),
-           "4" => get_string("region4", "braincert"),
-           "5" => get_string("region5", "braincert"),
-           "6" => get_string("region6", "braincert"),
-           "7" => get_string("region7", "braincert"),
-           "8" => get_string("region8", "braincert"),
-           "9" => get_string("region9", "braincert"),
-           "10" => get_string("region10", "braincert"),
-           "11" => get_string("region11", "braincert"),
-           "12" => get_string("region12", "braincert"),
-           "13" => get_string("region13", "braincert"),
-           "14" => get_string("region14", "braincert"),
-        );
+
+        //function braincert_get_regions($braincert) {
+    $data['task'] = BRAINCERT_TASK_GETSERVERS;
+    $datacenters = braincert_get_curl_info($data);
+    $final_result = array();
+    foreach ($datacenters as $datacenter) {
+       $final_result[$datacenter['id']] = $datacenter['name'];
+    }
+
+    return $final_result;
     }
 
     private function lang_options() {

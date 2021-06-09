@@ -62,6 +62,7 @@ define('BRAINCERT_TASK_REMOVE_CLASS_RECORDING', 'removeclassrecording');
 define('BRAINCERT_TASK_GET_PAYMENT_INFO', 'getPaymentInfo');
 define('BRAINCERT_TASK_GET_PLAN', 'getplan');
 define('BRAINCERT_NO_RECORDING_AVAILABLE', 'No video recording available');
+define('BRAINCERT_TASK_GETSERVERS', 'getservers');
 define('BRAINCERT_MODE_PERSONA_ADMIN', 1);
 define('BRAINCERT_MODE_PERSONA_TEACHER', 2);
 define('BRAINCERT_MODE_PERSONA_STUDENT', 3);
